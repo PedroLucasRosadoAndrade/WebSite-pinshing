@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+}
+
+/* Afya Theme */
+body.bg-afya {
+    background-color: #d80056;
+}
+
+.lang-selector {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 14px;
+}
+
+.afya-container {
+    text-align: center;
+    color: white;
+}
+
+.afya-logo {
+    font-size: 72px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 50px;
+}
+
+.btn-afya {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: white;
+    color: #333;
+    padding: 12px 60px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.terms-text {
+    position: absolute;
+    bottom: 40px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Card Box Design (Microsoft & Wi-Fi) */
+.card-box {
+    background-color: white;
+    width: 440px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ms-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #737373;
+    margin-bottom: 16px;
+}
+
+.ms-squares {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    width: 18px;
+    height: 18px;
+}
+
+.ms-squares div {
+    width: 8px;
+    height: 8px;
+}
+
+.sq-red {
+    background-color: #f25022;
+}
+
+.sq-green {
+    background-color: #7fba00;
+}
+
+.sq-blue {
+    background-color: #00a4ef;
+}
+
+.sq-yellow {
+    background-color: #ffb900;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1b1b1b;
+    margin-bottom: 20px;
+}
+
+.account-option {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-top: 1px dashed #e1e1e1;
+    border-bottom: 1px dashed #e1e1e1;
+    cursor: pointer;
+    text-decoration: none;
+    color: #1b1b1b;
+}
+
+.account-option:hover {
+    background-color: #f3f3f3;
+}
+
+.account-icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+
+/* Form Controls */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #005a9e;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: #0067b8;
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    font-size: 15px;
+    border-radius: 2px;
+    cursor: pointer;
+    float: right;
+}
+
+.btn-blue-full {
+    width: 100%;
+    background-color: #2b6bf3;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.link-action {
+    color: #0067b8;
+    text-decoration: none;
+    font-size: 13px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 20px;
+}

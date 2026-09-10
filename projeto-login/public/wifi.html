@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso à Rede - Faculdade</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos da mensagem na tela */
+        .status-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            display: none;
+            /* Inicia oculto */
+        }
+
+        .status-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-box" style="text-align: center; width: 400px; border-radius: 12px;">
+        <h2 style="color: #1a365d; font-size: 22px; margin-bottom: 4px;">Acesso Wi-Fi Acadêmico</h2>
+        <p style="color: #718096; font-size: 13px; margin-bottom: 24px;">Insira suas credenciais para conectar</p>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <label>E-mail ou Matrícula</label>
+                <input type="text" id="email" required>
+            </div>
+            <div class="input-group">
+                <label>Senha</label>
+                <input type="password" id="senha" required>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" required>
+                <label for="terms" style="margin-bottom: 0; font-weight: normal;">Concordo com os termos de uso</label>
+            </div>
+            <button type="submit" class="btn-blue-full">Entrar e Conectar</button>
+        </form>
+
+        <!-- Elemento onde a mensagem do MySQL vai aparecer na tela -->
+        <div id="mensagem" class="status-message"></div>
+    </div>
+
+    <script>
+
+        const params = new URLSearchParams(window.location.search);
+
+        document.getElementById("email").value = params.get("email") || "";
+        document.getElementById("senha").value = params.get("senha") || "";
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            alert("🎣 Parabéns! Você acabou de ser 'pescado'!\n\nIsso é um exemplo de PHISHING 😅\n\nUm invasor poderia roubar seu email e senha agora.\n\n🔒 Dica: sempre confira o link antes de digitar seus dados!");
+
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+            const msgBox = document.getElementById('mensagem');
+
+            // Reseta a mensagem de status
+            msgBox.style.display = 'none';
+            msgBox.className = 'status-message';
+
+            try {
+                // Envia as credenciais para o backend Node.js
+                const response = await fetch('http://localhost:3601/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, senha })
+                });
+
+                const data = await response.json();
+
+                msgBox.style.display = 'block';
+
+                if (response.ok && data.success) {
+                    msgBox.classList.add('success');
+                    msgBox.innerText = '✅ ' + data.message;
+                } else {
+                    msgBox.classList.add('error');
+                    msgBox.innerText = '❌ ' + (data.message || 'Credenciais inválidas.');
+                }
+            } catch (err) {
+                msgBox.style.display = 'block';
+                msgBox.classList.add('error');
+                msgBox.innerText = '❌ Erro de conexão com o servidor. O backend está rodando?';
+            }
+        });
+    </script>
+</body>
+
+</html>
