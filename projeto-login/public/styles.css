@@ -21,7 +21,7 @@ body.bg-afya {
 .lang-selector {
     position: absolute;
     top: 20px;
-    right: 30px;
+    right: 550px;
     color: white;
     font-size: 14px;
 }
@@ -29,32 +29,43 @@ body.bg-afya {
 .afya-container {
     text-align: center;
     color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+    transform: translateY(-130px);
 }
 
 .afya-logo {
-    font-size: 72px;
+    font-size: 60px;
     font-weight: bold;
     font-style: italic;
-    margin-bottom: 50px;
+    /* margin-bottom: 200px; */
 }
 
 .btn-afya {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 30px;
     background-color: white;
     color: #333;
     padding: 12px 60px;
-    border-radius: 25px;
+    border-radius: 20px;
     text-decoration: none;
     font-weight: 600;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    justify-content: flex-start;
 }
+
+.btn-afya img {
+    /* margin-left: -45px; espaço entre imagem e texto */
+    transform: translateX(-45px);
+}
+
 
 .terms-text {
     position: absolute;
-    bottom: 40px;
+    bottom: 210px;
     font-size: 12px;
     color: rgba(255, 255, 255, 0.8);
 }
